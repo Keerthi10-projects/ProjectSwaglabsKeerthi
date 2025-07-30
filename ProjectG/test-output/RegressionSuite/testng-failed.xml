@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [RegressionSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Test(failed)">
+    <parameter name="Browser" value="Chrome"/>
+    <classes>
+      <class name="producttest.Example1Test">
+        <methods>
+          <include name="orderProducts" invocation-numbers="0"/>
+          <include name="Logout"/>
+          <include name="LogIn"/>
+          <include name="browserSetup"/>
+          <include name="broserTerminate"/>
+        </methods>
+      </class> <!-- producttest.Example1Test -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [RegressionSuite] -->

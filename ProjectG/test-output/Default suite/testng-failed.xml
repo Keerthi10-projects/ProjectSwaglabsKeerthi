@@ -7,8 +7,10 @@
         <methods>
           <include name="orderProducts"/>
           <include name="Logout"/>
-          <include name="browserSetup"/>
           <include name="LogIn"/>
+          <include name="browserSetup"/>
+          <include name="ReportTerminate"/>
+          <include name="ReporterSetup"/>
           <include name="broserTerminate"/>
         </methods>
       </class> <!-- producttest.Example1Test -->

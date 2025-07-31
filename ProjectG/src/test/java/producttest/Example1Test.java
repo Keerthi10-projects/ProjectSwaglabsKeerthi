@@ -2,10 +2,14 @@ package producttest;
 
 import java.time.Duration;
 
+
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 
 import genericLibrary.BaseConfig;
 import genericLibrary.ExcelLibrary;
@@ -19,7 +23,17 @@ import pageRepository.HomePage;
 public class Example1Test extends BaseConfig {
 
 	@Test(groups = "RT", priority = 1, enabled = true, invocationCount = 1, dataProvider = "CheckoutInfo")
+	
 	public void orderProducts(String FirstName, String LastName, String ZipCode) {
+		        //Create the Test Information
+				 test = report.createTest("Verify Order Prd1");
+				
+				//Steps Information
+				test.log(Status.INFO, "step1: Launching the Browser Successful");
+				test.log(Status.INFO, "step2: Navigating to the Application via Url Successful");
+				test.log(Status.PASS, "step3: Verified the Page Succesful");
+				
+				Reporter.log("Keerthi",true);
 
 		Reporter.log(FirstName);
 		Reporter.log(LastName);
@@ -41,6 +55,15 @@ public class Example1Test extends BaseConfig {
 		hpobj.getfourthproduct().click();
 		// Verify Add To Cart button is Displayed & is Enabled
 		Assert.assertTrue(hpobj.getaddtocartbtn().isDisplayed() && hpobj.getaddtocartbtn().isEnabled());
+		if(hpobj.getfourthproduct().isDisplayed())
+		{
+			test.log(Status.PASS, "step4: Verified the WebElement Displayed Successful");
+			
+		}
+		else
+		{
+			test.log(Status.FAIL, "step4: Verified the WebElement not Displayed");
+		}
 		// Click on Add To Cart button
 		hpobj.getaddtocartbtn().click();
 		// Verify Back To Products link is Displayed & is Enabled

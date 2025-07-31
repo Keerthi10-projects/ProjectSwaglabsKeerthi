@@ -1,6 +1,5 @@
 package genericLibrary;
 
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -35,38 +34,36 @@ public class BaseConfig {
 	public ExtentSparkReporter spark;
 	public ExtentReports report;
 	public ExtentTest test;
-	
+
 	@BeforeTest
-	public void ReporterSetup()
-	{
-		//Create the SparkReport
-				 spark=new ExtentSparkReporter("./AdvanceReports/report.html");
-				
-				//Configure the SparkReport Information
-				spark.config().setDocumentTitle("Regression Testing for the SwagLabs");
-				spark.config().setReportName("RegressionTestSuite");
-				spark.config().setTheme(Theme.STANDARD);
-				
-				//Create the Extent Report
-				 report=new ExtentReports();
-				
-				//Attach the SparkReport and Extent Report
-				report.attachReporter(spark);
-				
-				//Configure the System Information in ExtentReport
-				report.setSystemInfo("Device Name:","Keerthi ch");
-				report.setSystemInfo("Operating System:", "Windows 11");
-				report.setSystemInfo("Browser:", "Chrome");
-				report.setSystemInfo("Browser Version:", " chrome-138.0.7204.169");
-				
+	public void ReporterSetup() {
+		// Create the SparkReport
+		spark = new ExtentSparkReporter("./AdvanceReports/report.html");
+
+		// Configure the SparkReport Information
+		spark.config().setDocumentTitle("Regression Testing for the SwagLabs");
+		spark.config().setReportName("RegressionTestSuite");
+		spark.config().setTheme(Theme.STANDARD);
+
+		// Create the Extent Report
+		report = new ExtentReports();
+
+		// Attach the SparkReport and Extent Report
+		report.attachReporter(spark);
+
+		// Configure the System Information in ExtentReport
+		report.setSystemInfo("Device Name:", "Keerthi ch");
+		report.setSystemInfo("Operating System:", "Windows 11");
+		report.setSystemInfo("Browser:", "Chrome");
+		report.setSystemInfo("Browser Version:", " chrome-138.0.7204.169");
+
 	}
+
 	@AfterTest
-	public void ReportTerminate()
-	{
-		//Flush the Report Information'
+	public void ReportTerminate() {
+		// Flush the Report Information'
 		report.flush();
 	}
-	
 
 	@Parameters("Browser")
 
@@ -199,7 +196,6 @@ public class BaseConfig {
 
 		// Close the Browser
 		WebDriverLibrary.closeAllWindow();
-		;
 
 	}
 
